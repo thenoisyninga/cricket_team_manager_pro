@@ -1,13 +1,12 @@
 class League {
-  late String leagueId;
   late String name;
-  late List<String> teamsIds;
-  late List<String> matchIds;
+  late String leagueCreatorId;
+  late List<dynamic> teamsIds;
+  late List<dynamic> matchIds;
   late DateTime? startDay;
   late DateTime? endDay;
 
   League(
-    this.leagueId,
     this.name,
     this.teamsIds,
     this.matchIds,
@@ -15,8 +14,14 @@ class League {
     this.endDay,
   );
 
+  League.fromDefault(this.name) {
+    teamsIds = [];
+    matchIds = [];
+    startDay = null;
+    endDay = null;
+  }
+
   League.fromMap(Map<String, dynamic> map) {
-    leagueId = map["leagueId"];
     name = map["name"];
     teamsIds = map["teamsIds"];
     matchIds = map["matchIds"];
@@ -26,12 +31,19 @@ class League {
 
   toMap() {
     return {
-      "leagueId": leagueId,
       "name": name,
       "teamsIds": teamsIds,
       "matchIds": matchIds,
       "startDay": startDay,
       "endDay": endDay,
     };
+  }
+
+  void addMatch(String matchId) {
+    matchIds.add(matchId);
+  }
+
+  void addTeam(String teamId) {
+    teamsIds.add(teamId);
   }
 }

@@ -14,7 +14,7 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: getPlayerFromFirestore(),
+        future: getCurrentPlayerFromFirestore(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             Player player = snapshot.data!;

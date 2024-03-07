@@ -35,3 +35,22 @@ Future<void> updateTeam(String teamId, Team team) async {
   print("updating team");
   db.collection("teams").doc(teamId).set(team.toMap());
 }
+
+Future<Team?> getTeamFromFirestore(String teamId) async {
+  var db = FirebaseFirestore.instance;
+
+  Team? team;
+  Map<String, dynamic>? teamData;
+  print("getting team for ${teamId}");
+
+  await db.collection("teams").doc(teamId).get().then((doc) {
+    if (doc.data() != null) {
+      teamData = doc.data() as Map<String, dynamic>;
+    }
+  });
+
+  team = Team.fromMap(teamData!);
+
+  print("Team: " + team.toString());
+  return team;
+}

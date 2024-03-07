@@ -1,4 +1,4 @@
-class Match {
+class CricketMatch {
   late String leagueId;
   late String team1Id;
   late String team2Id;
@@ -10,7 +10,7 @@ class Match {
   late int numPlayesOutTeam1;
   late int numPlayesOutTeam2;
 
-  Match(
+  CricketMatch(
     this.leagueId,
     this.team1Id,
     this.team2Id,
@@ -23,7 +23,7 @@ class Match {
     this.numPlayesOutTeam2,
   );
 
-  Match.fromMap(Map<String, dynamic> map) {
+  CricketMatch.fromMap(Map<String, dynamic> map) {
     leagueId = map["leagueId"];
     team1Id = map["team1Id"];
     team2Id = map["team2Id"];
@@ -36,7 +36,7 @@ class Match {
     numPlayesOutTeam2 = map["numPlayesOutTeam2"];
   }
 
-  toMap() {
+  Map<String, dynamic> toMap() {
     return {
       "leagueId": leagueId,
       "team1Id": team1Id,

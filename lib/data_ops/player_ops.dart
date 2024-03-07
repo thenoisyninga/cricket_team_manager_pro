@@ -16,7 +16,7 @@ Future<void> addPlayerToFirestore(Player player) async {
   }
 }
 
-Future<Player?> getPlayerFromFirestore() async {
+Future<Player?> getCurrentPlayerFromFirestore() async {
   var db = FirebaseFirestore.instance;
 
   User? user = await getCurrentUser();
@@ -29,5 +29,18 @@ Future<Player?> getPlayerFromFirestore() async {
       }
     });
   }
+  return player;
+}
+
+Future<Player?> getPlayerFromFirestore(String playerId) async {
+  var db = FirebaseFirestore.instance;
+  Player? player;
+
+  await db.collection("players").doc(playerId).get().then((doc) {
+    if (doc.data() != null) {
+      player = Player.fromMap((doc.data()!));
+    }
+  });
+
   return player;
 }

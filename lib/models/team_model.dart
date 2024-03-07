@@ -1,11 +1,11 @@
 class Team {
   late String name;
   late String captainId;
-  List<String> teamPlayerIds = [];
-  List<String> battingLineup = [];
-  List<String> bowlingLineup = [];
+  List<dynamic> teamPlayerIds = [];
+  List<dynamic> battingLineup = [];
+  List<dynamic> bowlingLineup = [];
   String? wicketKeeperId;
-  List<String> joinedLeagueIds = [];
+  List<dynamic> joinedLeagueIds = [];
 
   Team(
     this.name,

@@ -3,6 +3,7 @@ import 'package:cricket_team_manager_pro/auth/auth_ops.dart';
 import 'package:cricket_team_manager_pro/data_ops/player_ops.dart';
 import 'package:cricket_team_manager_pro/dialogues/add_team.dart';
 import 'package:cricket_team_manager_pro/models/player_model.dart';
+import 'package:cricket_team_manager_pro/pages/team/team_display.dart';
 import 'package:flutter/material.dart';
 
 class TeamSelectPage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _TeamSelectPageState extends State<TeamSelectPage> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: getPlayerFromFirestore(),
+        future: getCurrentPlayerFromFirestore(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             Player player = snapshot.data!;
@@ -31,7 +32,7 @@ class _TeamSelectPageState extends State<TeamSelectPage> {
                           onPressed: () {
                             showDialog(
                               context: context,
-                              builder: (context) => AddTeamDialogue(),
+                              builder: (context) => const AddTeamDialogue(),
                             ).then((value) {
                               Navigator.of(context).pop();
                             });
@@ -50,20 +51,35 @@ class _TeamSelectPageState extends State<TeamSelectPage> {
                         children: snapshot.data!.docs
                             .map(
                               (doc) => ListTile(
-                                title: Text(doc.data()["name"]),
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          TeamDisplay(teamId: doc.id),
+                                    ),
+                                  );
+                                },
+                                title: Text(
+                                  doc.data()["name"],
+                                  style: const TextStyle(fontSize: 25),
+                                ),
+                                subtitle: Text(
+                                  "${doc.data()["teamPlayerIds"].length} members",
+                                  style: TextStyle(color: Colors.grey[400]),
+                                ),
                               ),
                             )
                             .toList(),
                       );
                     } else {
-                      return Center(
+                      return const Center(
                         child: CircularProgressIndicator(),
                       );
                     }
                   }),
             );
           } else {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
