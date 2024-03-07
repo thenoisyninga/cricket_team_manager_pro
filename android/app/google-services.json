@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "844861834658",
+    "project_id": "cricket-team-manager-pro",
+    "storage_bucket": "cricket-team-manager-pro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844861834658:android:b03993019d9b94ca261efb",
+        "android_client_info": {
+          "package_name": "com.example.cricket_team_manager_pro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpJYBawbtXKS_DyUTYYiziJLMuwgMzHhk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
