@@ -1,12 +1,19 @@
 class Team {
+  late String name;
   late String captainId;
-  late List<String> teamPlayerIds;
-  late List<String> battingLineup;
-  late List<String> bowlingLineup;
-  late String? wicketKeeperId;
-  late List<String> joinedLeagueIds;
+  List<String> teamPlayerIds = [];
+  List<String> battingLineup = [];
+  List<String> bowlingLineup = [];
+  String? wicketKeeperId;
+  List<String> joinedLeagueIds = [];
+
+  Team(
+    this.name,
+    this.captainId,
+  );
 
   Team.fromMap(Map<String, dynamic> map) {
+    name = map["name"];
     captainId = map["captainId"];
     teamPlayerIds = map["teamPlayerIds"];
     battingLineup = map["battingLineup"];
@@ -17,6 +24,7 @@ class Team {
 
   toMap() {
     return {
+      "name": name,
       "captainId": captainId,
       "teamPlayerIds": teamPlayerIds,
       "battingLineup": battingLineup,

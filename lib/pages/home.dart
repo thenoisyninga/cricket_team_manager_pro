@@ -1,8 +1,10 @@
 import 'package:cricket_team_manager_pro/auth/auth_ops.dart';
-import 'package:cricket_team_manager_pro/data_ops/upload_player.dart';
+import 'package:cricket_team_manager_pro/data_ops/player_ops.dart';
 import 'package:cricket_team_manager_pro/models/player_model.dart';
 import 'package:cricket_team_manager_pro/pages/auth/login.dart';
 import 'package:cricket_team_manager_pro/pages/player/player_display.dart';
+import 'package:cricket_team_manager_pro/pages/team/team_display.dart';
+import 'package:cricket_team_manager_pro/pages/team/teams_select.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +49,23 @@ class HomePage extends StatelessWidget {
           })
         ],
       ),
-      body: const Center(child: const Text("Home,")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => TeamSelectPage(),
+                  ),
+                );
+              },
+              child: const Text("Teams"),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

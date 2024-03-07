@@ -1,4 +1,4 @@
-import 'package:cricket_team_manager_pro/data_ops/upload_player.dart';
+import 'package:cricket_team_manager_pro/data_ops/player_ops.dart';
 import 'package:cricket_team_manager_pro/dialogues/edit_profile.dart';
 import 'package:cricket_team_manager_pro/models/player_model.dart';
 import 'package:flutter/material.dart';

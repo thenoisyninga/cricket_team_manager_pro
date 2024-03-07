@@ -42,6 +42,7 @@ class Player {
     battingSkills = [];
     bowlingSkills = [];
     fieldingSkills = [];
+    teamId = null;
   }
 
   Player.fromMap(Map<String, dynamic> map) {
@@ -76,5 +77,9 @@ class Player {
       "fieldingSkills": fieldingSkills,
       "teamId": teamId,
     };
+  }
+
+  assignTeam(String teamId) {
+    this.teamId = teamId;
   }
 }
