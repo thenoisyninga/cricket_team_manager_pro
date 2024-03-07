@@ -1,3 +1,5 @@
+import 'package:cricket_team_manager_pro/data_ops/upload_player.dart';
+import 'package:cricket_team_manager_pro/models/player_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 Future<String?> loginWithEmailAndPassword(String email, String password) async {
@@ -25,6 +27,9 @@ Future<String?> signUpWithEmailAndPassword(
       password: password,
     );
 
+    // TODO Populate with default data
+    addPlayerToFirestore(Player.fromDefault());
+
     return "success";
   } on FirebaseAuthException catch (e) {
     return e.code;
@@ -45,4 +50,15 @@ Future<String?> logout() async {
     print(e);
     return "failed";
   }
+}
+
+Future<User?> getCurrentUser() async {
+  User? userToReturn;
+  await FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    if (user != null) {
+      userToReturn = user;
+    }
+  });
+
+  return userToReturn;
 }

@@ -102,8 +102,6 @@ class _LoginPageState extends State<LoginPage> {
                         String? result = await loginWithEmailAndPassword(
                             emailController.text, passwordController.text);
 
-                        print(result);
-
                         if (result != "success") {
                           // If email error
                           if (result == "invalid-email") {

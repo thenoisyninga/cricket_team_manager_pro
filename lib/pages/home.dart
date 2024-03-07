@@ -1,6 +1,7 @@
 import 'package:cricket_team_manager_pro/auth/auth_ops.dart';
+import 'package:cricket_team_manager_pro/data_ops/upload_player.dart';
 import 'package:cricket_team_manager_pro/models/player_model.dart';
-import 'package:cricket_team_manager_pro/models/skillset_model.dart';
+import 'package:cricket_team_manager_pro/pages/login.dart';
 import 'package:cricket_team_manager_pro/pages/profile_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("H O M E"),
+        title: const Text("H O M E"),
         backgroundColor: Colors.transparent,
         actions: [
           IconButton(
@@ -20,37 +21,23 @@ class HomePage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ProfileView(
-                    player: Player(
-                      "Abdullah",
-                      "Azhar Khan",
-                      "abdullah",
-                      "bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio bio ",
-                      20,
-                      "M",
-                      60.0,
-                      600,
-                      SkillSet(
-                        [],
-                        [],
-                        [],
-                      ),
-                    ),
-                  ),
+                  builder: (context) => ProfileView(),
                 ),
               );
+
+              // addPlayerToFirestore(Player.fromDefault());
             },
             icon: const Icon(Icons.person),
           ),
           PopupMenuButton(itemBuilder: (context) {
             return [
               PopupMenuItem(
-                onTap: () {
-                  logout();
+                onTap: () async {
+                  print(await logout());
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const HomePage(),
+                      builder: (context) => const LoginPage(),
                     ),
                   );
                 },
@@ -60,7 +47,7 @@ class HomePage extends StatelessWidget {
           })
         ],
       ),
-      body: Center(child: Text("Home,")),
+      body: const Center(child: const Text("Home,")),
     );
   }
 }

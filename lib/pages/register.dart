@@ -100,17 +100,16 @@ class _RegisterPageState extends State<RegisterPage> {
                   // Login Button
                   GestureDetector(
                     onTap: () async {
-                      showDialog(
-                        context: context,
-                        builder: (context) => const Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      );
-
                       if (emailController.text.isNotEmpty &&
                           passwordController.text.isNotEmpty &&
                           passwordController.text ==
                               reEnterPasswordController.text) {
+                        showDialog(
+                          context: context,
+                          builder: (context) => const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        );
                         String? result = await signUpWithEmailAndPassword(
                           emailController.text,
                           passwordController.text,

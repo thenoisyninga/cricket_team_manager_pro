@@ -1,5 +1,3 @@
-import 'package:cricket_team_manager_pro/models/skillset_model.dart';
-
 class Player {
   late String firstName;
   late String lastName;
@@ -9,17 +7,70 @@ class Player {
   late String gender;
   late double weight;
   late double height;
-  late SkillSet skillSet;
+  late String dpData;
+  late List<dynamic> battingSkills;
+  late List<dynamic> bowlingSkills;
+  late List<dynamic> fieldingSkills;
 
   Player(
     this.firstName,
     this.lastName,
     this.username,
+    this.dpData,
     this.bio,
     this.age,
     this.gender,
     this.weight,
     this.height,
-    this.skillSet,
+    this.battingSkills,
+    this.bowlingSkills,
+    this.fieldingSkills,
   );
+
+  Player.fromDefault() {
+    firstName = "";
+    lastName = "";
+    username = "";
+    bio = "";
+    age = 0;
+    gender = "";
+    dpData = "";
+    weight = 0.0;
+    height = 0.0;
+    battingSkills = [];
+    bowlingSkills = [];
+    fieldingSkills = [];
+  }
+
+  Player.fromMap(Map<String, dynamic> map) {
+    firstName = map["firstName"];
+    lastName = map["lastName"];
+    username = map["username"];
+    bio = map["bio"];
+    age = map["age"];
+    gender = map["gender"];
+    weight = map["weight"];
+    dpData = map["dpData"];
+    height = map["height"];
+    battingSkills = map["battingSkills"];
+    bowlingSkills = map["bowlingSkills"];
+    fieldingSkills = map["fieldingSkills"];
+  }
+
+  toMap() {
+    return {
+      "firstName": firstName,
+      "lastName": lastName,
+      "username": username,
+      "bio": bio,
+      "age": age,
+      "gender": gender,
+      "weight": weight,
+      "dpData": dpData,
+      "height": height,
+      "battingSkills": battingSkills,
+      "bowlingSkills": bowlingSkills,
+      "fieldingSkills": fieldingSkills,
+    };
+  }
 }
