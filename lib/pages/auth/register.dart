@@ -1,7 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:cricket_team_manager_pro/auth/auth_ops.dart';
-import 'package:cricket_team_manager_pro/pages/login.dart';
+import 'package:cricket_team_manager_pro/pages/auth/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

@@ -11,6 +11,7 @@ class Player {
   late List<dynamic> battingSkills;
   late List<dynamic> bowlingSkills;
   late List<dynamic> fieldingSkills;
+  late String? teamId;
 
   Player(
     this.firstName,
@@ -25,6 +26,7 @@ class Player {
     this.battingSkills,
     this.bowlingSkills,
     this.fieldingSkills,
+    this.teamId,
   );
 
   Player.fromDefault() {
@@ -55,6 +57,7 @@ class Player {
     battingSkills = map["battingSkills"];
     bowlingSkills = map["bowlingSkills"];
     fieldingSkills = map["fieldingSkills"];
+    teamId = map["teamId"];
   }
 
   toMap() {
@@ -71,6 +74,7 @@ class Player {
       "battingSkills": battingSkills,
       "bowlingSkills": bowlingSkills,
       "fieldingSkills": fieldingSkills,
+      "teamId": teamId,
     };
   }
 }

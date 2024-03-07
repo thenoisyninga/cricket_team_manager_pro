@@ -1,8 +1,8 @@
 import 'package:cricket_team_manager_pro/firebase_options.dart';
-import 'package:cricket_team_manager_pro/pages/auth_redirector.dart';
+import 'package:cricket_team_manager_pro/pages/auth/auth_redirector.dart';
 import 'package:cricket_team_manager_pro/pages/home.dart';
-import 'package:cricket_team_manager_pro/pages/login.dart';
-import 'package:cricket_team_manager_pro/pages/register.dart';
+import 'package:cricket_team_manager_pro/pages/auth/login.dart';
+import 'package:cricket_team_manager_pro/pages/auth/register.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

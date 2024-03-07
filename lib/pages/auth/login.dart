@@ -2,7 +2,7 @@
 
 import 'package:cricket_team_manager_pro/auth/auth_ops.dart';
 import 'package:cricket_team_manager_pro/pages/home.dart';
-import 'package:cricket_team_manager_pro/pages/register.dart';
+import 'package:cricket_team_manager_pro/pages/auth/register.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

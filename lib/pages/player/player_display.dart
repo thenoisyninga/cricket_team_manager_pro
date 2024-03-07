@@ -1,5 +1,5 @@
 import 'package:cricket_team_manager_pro/data_ops/upload_player.dart';
-import 'package:cricket_team_manager_pro/dialogues/modify_data.dart';
+import 'package:cricket_team_manager_pro/dialogues/edit_profile.dart';
 import 'package:cricket_team_manager_pro/models/player_model.dart';
 import 'package:flutter/material.dart';
 
@@ -26,11 +26,13 @@ class _ProfileViewState extends State<ProfileView> {
                   IconButton(
                     onPressed: () {
                       showDialog(
-                          context: context,
-                          builder: (context) => ModifyDataDialogue())
-                        ..then((value) {
-                          setState(() {});
-                        });
+                        context: context,
+                        builder: (context) => EditProfileDialogue(
+                          currentPlayer: player,
+                        ),
+                      ).then((value) {
+                        setState(() {});
+                      });
                     },
                     icon: const Icon(Icons.edit),
                   ),
