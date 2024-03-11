@@ -2,13 +2,13 @@ class CricketMatch {
   late String leagueId;
   late String team1Id;
   late String team2Id;
-  late DateTime dayOfMatch;
-  late int ballsFacedTeam1;
-  late int ballsFacedTeam2;
-  late int runsTeam1;
-  late int runsTeam2;
-  late int numPlayesOutTeam1;
-  late int numPlayesOutTeam2;
+  late dynamic dayOfMatch;
+  late int? ballsFacedTeam1;
+  late int? ballsFacedTeam2;
+  late int? runsTeam1;
+  late int? runsTeam2;
+  late int? numPlayesOutTeam1;
+  late int? numPlayesOutTeam2;
 
   CricketMatch(
     this.leagueId,

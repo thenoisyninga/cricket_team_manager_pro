@@ -7,6 +7,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 Future<void> createTeam(Team team) async {
   String? teamID;
+  User? user = await getCurrentUser();
+
+  team.addPlayer(user!.uid);
 
   // register team
   teamID = await addTeamToFirestore(team);
@@ -16,6 +19,8 @@ Future<void> createTeam(Team team) async {
   if (teamID != null && captain != null) {
     captain.assignTeam(teamID);
     addPlayerToFirestore(captain);
+
+    // add captain to team
   }
 }
 
@@ -27,5 +32,24 @@ Future<bool> isTeamCaptian(String teamId) async {
     return team.captainId == user.uid;
   } else {
     return false;
+  }
+}
+
+Future<void> addPlayerToTeam(String playerId, String teamId) async {
+  Player? player = await getPlayerFromFirestore(playerId);
+  Team? team = await getTeamFromFirestore(teamId);
+
+  if (!(await (playerExistsInTeam(playerId, teamId)))) {
+    print("adding player to team");
+
+    // add team to player object
+    player?.assignTeam(teamId);
+    addPlayerToFirestore(player!);
+
+    // add player to team and update
+    team!.addPlayer(playerId);
+    updateTeam(teamId, team);
+  } else {
+    print("already exists");
   }
 }

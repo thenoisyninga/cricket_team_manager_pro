@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cricket_team_manager_pro/auth/auth_ops.dart';
 import 'package:cricket_team_manager_pro/data_ops/player_ops.dart';
-import 'package:cricket_team_manager_pro/dialogues/add_leagues.dart';
-import 'package:cricket_team_manager_pro/dialogues/add_team.dart';
+import 'package:cricket_team_manager_pro/custom_dialogues/add_leagues.dart';
+import 'package:cricket_team_manager_pro/custom_dialogues/add_team.dart';
 import 'package:cricket_team_manager_pro/models/player_model.dart';
 import 'package:cricket_team_manager_pro/pages/league/league_display.dart';
 import 'package:cricket_team_manager_pro/pages/team/team_display.dart';
@@ -32,9 +32,7 @@ class _LeagueSelectPageState extends State<LeagueSelectPage> {
                 builder: (context) => AddLeagueDialogue(
                   teamId: widget.teamId,
                 ),
-              ).then((value) {
-                Navigator.of(context).pop();
-              });
+              );
             },
             icon: const Icon(Icons.add),
           )

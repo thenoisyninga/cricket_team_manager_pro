@@ -1,8 +1,5 @@
 import 'package:cricket_team_manager_pro/firebase_options.dart';
 import 'package:cricket_team_manager_pro/pages/auth/auth_redirector.dart';
-import 'package:cricket_team_manager_pro/pages/home.dart';
-import 'package:cricket_team_manager_pro/pages/auth/login.dart';
-import 'package:cricket_team_manager_pro/pages/auth/register.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -26,13 +23,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           colorScheme: ColorScheme(
         brightness: Brightness.dark,
-        primary: Colors.blue[900]!,
-        onPrimary: Colors.grey[200]!,
-        secondary: Colors.blue[600]!,
+        primary: Colors.green[900]!,
+        onPrimary: Colors.green[200]!,
+        secondary: Colors.green[600]!,
         onSecondary: Colors.grey[200]!,
         error: Colors.red[900]!,
         onError: Colors.grey[200]!,
-        background: const Color.fromARGB(255, 20, 20, 20)!,
+        background: const Color.fromARGB(255, 20, 20, 20),
         onBackground: Colors.grey[200]!,
         surface: Colors.transparent,
         onSurface: Colors.grey[200]!,

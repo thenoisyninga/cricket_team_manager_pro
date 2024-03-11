@@ -25,7 +25,6 @@ Future<String?> addTeamToFirestore(Team team) async {
     print("user null");
   }
 
-  print(teamID);
   return teamID;
 }
 
@@ -41,7 +40,6 @@ Future<Team?> getTeamFromFirestore(String teamId) async {
 
   Team? team;
   Map<String, dynamic>? teamData;
-  print("getting team for ${teamId}");
 
   await db.collection("teams").doc(teamId).get().then((doc) {
     if (doc.data() != null) {
@@ -53,4 +51,10 @@ Future<Team?> getTeamFromFirestore(String teamId) async {
 
   print("Team: " + team.toString());
   return team;
+}
+
+Future<bool> playerExistsInTeam(String playerId, String teamId) async {
+  Team? team = await getTeamFromFirestore(teamId);
+
+  return team!.joinedLeagueIds.indexWhere((id) => id == playerId) == -1;
 }

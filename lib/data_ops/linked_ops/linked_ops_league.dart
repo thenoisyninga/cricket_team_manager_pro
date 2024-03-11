@@ -13,6 +13,7 @@ Future<void> createLeague(League league, String teamId) async {
   // register league
   leagueId = await addLeagueToFirestore(league!);
   Team? team = await getTeamFromFirestore(teamId);
+  User? user = await getCurrentUser();
 
   // add league to team's list
   if (leagueId != null && team != null) {
@@ -22,7 +23,8 @@ Future<void> createLeague(League league, String teamId) async {
     // add team to league's list
     League newLeague = (await getLeagueFromFirestore(leagueId))!;
     newLeague.addTeam(teamId);
-    updateLeague(leagueId, league);
+    newLeague.leagueCreatorId = user!.uid;
+    updateLeague(leagueId, newLeague);
   }
 }
 

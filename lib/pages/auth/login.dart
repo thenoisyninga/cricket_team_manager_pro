@@ -33,32 +33,27 @@ class _LoginPageState extends State<LoginPage> {
             child: SizedBox(
               height: MediaQuery.of(context).size.height,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    height: 100,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 100,
-                    width: 200,
-                    color: Colors.red,
-                    child: const Text("LOGO"),
+                  SizedBox(
+                    height: 30,
                   ),
 
-                  const SizedBox(
-                    height: 50,
+                  Container(
+                    alignment: Alignment.center,
+                    child: const Image(
+                      height: 150,
+                      image: AssetImage(
+                        "assets/images/logo.png",
+                      ),
+                    ),
                   ),
 
                   // Login
                   const Text(
                     "Login",
                     style: TextStyle(fontSize: 40, fontWeight: FontWeight.w200),
-                  ),
-
-                  const SizedBox(
-                    height: 50,
                   ),
 
                   // Email Field
@@ -70,10 +65,6 @@ class _LoginPageState extends State<LoginPage> {
                     controller: emailController,
                   ),
 
-                  const SizedBox(
-                    height: 20,
-                  ),
-
                   // Password
                   TextField(
                     decoration: InputDecoration(
@@ -83,77 +74,89 @@ class _LoginPageState extends State<LoginPage> {
                     controller: passwordController,
                   ),
 
-                  const SizedBox(
-                    height: 50,
-                  ),
-
                   // Login Button
-                  GestureDetector(
-                    onTap: () async {
-                      showDialog(
-                        context: context,
-                        builder: (context) => const Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      );
-
-                      if (emailController.text.isNotEmpty &&
-                          passwordController.text.isNotEmpty) {
-                        String? result = await loginWithEmailAndPassword(
-                            emailController.text, passwordController.text);
-
-                        if (result != "success") {
-                          // If email error
-                          if (result == "invalid-email") {
-                            setState(() {
-                              emailError = "Invalid Email";
-                            });
-                          } else if (result == "unverified-email") {
-                            setState(() {
-                              emailError == "Unverified Mail";
-                            });
-                          } else if (result == "invalid-credential") {
-                            print("triggered");
-                            setState(() {
-                              emailError == "Email or password wrong";
-                            });
-                          } else {
-                            setState(
-                              () {
-                                emailError = null;
-                              },
+                  Container(
+                    height: 200,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        GestureDetector(
+                          onTap: () async {
+                            showDialog(
+                              context: context,
+                              builder: (context) => const Center(
+                                child: CircularProgressIndicator(),
+                              ),
                             );
-                          }
 
-                          Navigator.of(context).pop();
-                        } else {
-                          setState(() {
-                            emailError == null;
-                            passwordError = null;
-                          });
+                            if (emailController.text.isNotEmpty &&
+                                passwordController.text.isNotEmpty) {
+                              String? result = await loginWithEmailAndPassword(
+                                  emailController.text,
+                                  passwordController.text);
 
-                          Navigator.pop(context);
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const HomePage(),
+                              if (result != "success") {
+                                // If email error
+                                if (result == "invalid-email") {
+                                  setState(() {
+                                    emailError = "Invalid Email";
+                                  });
+                                } else if (result == "unverified-email") {
+                                  setState(() {
+                                    emailError == "Unverified Mail";
+                                  });
+                                } else if (result == "invalid-credential") {
+                                  print("triggered");
+                                  setState(() {
+                                    emailError == "Email or password wrong";
+                                  });
+                                } else {
+                                  setState(
+                                    () {
+                                      emailError = null;
+                                    },
+                                  );
+                                }
+
+                                Navigator.of(context).pop();
+                              } else {
+                                setState(() {
+                                  emailError == null;
+                                  passwordError = null;
+                                });
+
+                                Navigator.pop(context);
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const HomePage(),
+                                  ),
+                                );
+                              }
+                            }
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: MediaQuery.of(context).size.width * 0.8,
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.primary,
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                          );
-                        }
-                      }
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const Text("Login"),
+                            child: const Text(
+                              "Login",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                letterSpacing: 2,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(),
+                      ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 100,
-                  ),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

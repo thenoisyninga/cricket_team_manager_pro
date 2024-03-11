@@ -44,3 +44,10 @@ Future<Player?> getPlayerFromFirestore(String playerId) async {
 
   return player;
 }
+
+Future<void> updatePlayer(String playerId, Player player) async {
+  var db = FirebaseFirestore.instance;
+
+  print("updating player");
+  db.collection("players").doc(playerId).set(player.toMap());
+}

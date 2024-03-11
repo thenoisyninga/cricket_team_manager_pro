@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cricket_team_manager_pro/auth/auth_ops.dart';
 import 'package:cricket_team_manager_pro/data_ops/player_ops.dart';
-import 'package:cricket_team_manager_pro/dialogues/add_team.dart';
+import 'package:cricket_team_manager_pro/custom_dialogues/add_team.dart';
 import 'package:cricket_team_manager_pro/models/player_model.dart';
 import 'package:cricket_team_manager_pro/pages/team/team_display.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class _TeamSelectPageState extends State<TeamSelectPage> {
                               context: context,
                               builder: (context) => const AddTeamDialogue(),
                             ).then((value) {
-                              Navigator.of(context).pop();
+                              setState(() {});
                             });
                           },
                           icon: const Icon(Icons.add),

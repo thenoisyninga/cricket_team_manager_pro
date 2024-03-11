@@ -46,7 +46,7 @@ class _ViewTeamLeaguesDialogueState extends State<ViewTeamLeaguesDialogue> {
                         children: snapshot.data!.docs
                             .map(
                               (doc) => ListTile(
-                                title: doc["name"],
+                                title: Text(doc["name"]),
                               ),
                             )
                             .toList(),

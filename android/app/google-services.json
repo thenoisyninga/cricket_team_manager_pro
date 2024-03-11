@@ -12,7 +12,20 @@
           "package_name": "com.example.cricket_team_manager_pro"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "844861834658-bggbniqef7etdfe2820dugimtirp5nae.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cricket_team_manager_pro",
+            "certificate_hash": "4f88001e4da61bb141f9eea514f9eea89e76c9e8"
+          }
+        },
+        {
+          "client_id": "844861834658-n1t1v6ns9u3ujunq7vmnbqpc3ol5uetc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCpJYBawbtXKS_DyUTYYiziJLMuwgMzHhk"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "844861834658-n1t1v6ns9u3ujunq7vmnbqpc3ol5uetc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "844861834658-7la5nhdtib81r3ke01oato0i9depor97.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cricketTeamManagerPro"
+              }
+            }
+          ]
         }
       }
     }

@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cricket_team_manager_pro/data_ops/team_ops.dart';
 import 'package:cricket_team_manager_pro/models/match_model.dart';
+import 'package:cricket_team_manager_pro/models/team_model.dart';
 
 Future<String?> addMatchToFirestore(CricketMatch match) async {
   var db = FirebaseFirestore.instance;
@@ -42,4 +44,18 @@ Future<CricketMatch?> getMatchFromFirestore(String matchId) async {
   match = CricketMatch.fromMap(matchData!);
 
   return match;
+}
+
+Future<List<String>?> getMatchTeams(String matchId) async {
+  CricketMatch? match = await getMatchFromFirestore(matchId);
+
+  // Get team names
+  if (match != null) {
+    Team? team1 = await getTeamFromFirestore(match.team1Id);
+    Team? team2 = await getTeamFromFirestore(match.team2Id);
+
+    if (team1 != null && team2 != null) {
+      return [team1.name, team2.name];
+    }
+  }
 }

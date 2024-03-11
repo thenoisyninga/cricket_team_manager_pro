@@ -39,6 +39,31 @@ Future<String?> signUpWithEmailAndPassword(
   }
 }
 
+// Future<UserCredential> signInWithFacebook() async {
+//   // Trigger the sign-in flow
+//   final LoginResult loginResult = await FacebookAuth.instance.login();
+
+//   // Create a credential from the access token
+//   final OAuthCredential facebookAuthCredential =
+//       FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+//   // Once signed in, return the UserCredential
+//   return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+// }
+
+// signInWithGoogle() async {
+//   final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
+
+//   final GoogleSignInAuthentication gAuth = await gUser!.authentication;
+
+//   final credential = GoogleAuthProvider.credential(
+//     accessToken: gAuth.accessToken,
+//     idToken: gAuth.idToken,
+//   );
+
+//   return await FirebaseAuth.instance.signInWithCredential(credential);
+// }
+
 Future<String?> logout() async {
   try {
     final credential = await FirebaseAuth.instance.signOut();

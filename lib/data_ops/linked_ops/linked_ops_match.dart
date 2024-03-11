@@ -8,6 +8,7 @@ Future<void> createMatch(CricketMatch match, String leagueId) async {
 
   // register match
   matchID = await addMatchToFirestore(match);
+
   League? league = await getLeagueFromFirestore(leagueId);
 
   // add match to league's list

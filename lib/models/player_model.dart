@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Player {
   late String firstName;
   late String lastName;
@@ -81,5 +83,32 @@ class Player {
 
   assignTeam(String teamId) {
     this.teamId = teamId;
+  }
+
+  bool isBatsmen() {
+    if (battingSkills.length < bowlingSkills.length ||
+        battingSkills.length < fieldingSkills.length) {
+      return false;
+    }
+
+    return true;
+  }
+
+  bool isBowler() {
+    if (bowlingSkills.length < battingSkills.length ||
+        bowlingSkills.length < fieldingSkills.length) {
+      return false;
+    }
+
+    return true;
+  }
+
+  bool isFielder() {
+    if (fieldingSkills.length < battingSkills.length ||
+        fieldingSkills.length < bowlingSkills.length) {
+      return false;
+    }
+
+    return true;
   }
 }

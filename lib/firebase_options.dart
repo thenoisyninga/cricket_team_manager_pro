@@ -66,6 +66,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '844861834658',
     projectId: 'cricket-team-manager-pro',
     storageBucket: 'cricket-team-manager-pro.appspot.com',
+    androidClientId: '844861834658-bggbniqef7etdfe2820dugimtirp5nae.apps.googleusercontent.com',
+    iosClientId: '844861834658-7la5nhdtib81r3ke01oato0i9depor97.apps.googleusercontent.com',
     iosBundleId: 'com.example.cricketTeamManagerPro',
   );
 
@@ -75,6 +77,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '844861834658',
     projectId: 'cricket-team-manager-pro',
     storageBucket: 'cricket-team-manager-pro.appspot.com',
+    androidClientId: '844861834658-bggbniqef7etdfe2820dugimtirp5nae.apps.googleusercontent.com',
+    iosClientId: '844861834658-9fbqc3fb5ttlmbkj0n126joq0g1chvtv.apps.googleusercontent.com',
     iosBundleId: 'com.example.cricketTeamManagerPro.RunnerTests',
   );
 }

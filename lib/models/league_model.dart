@@ -3,8 +3,8 @@ class League {
   late String leagueCreatorId;
   late List<dynamic> teamsIds;
   late List<dynamic> matchIds;
-  late DateTime? startDay;
-  late DateTime? endDay;
+  late dynamic startDay;
+  late dynamic endDay;
 
   League(
     this.name,
@@ -23,6 +23,7 @@ class League {
 
   League.fromMap(Map<String, dynamic> map) {
     name = map["name"];
+    leagueCreatorId = map["leagueCreatorId"];
     teamsIds = map["teamsIds"];
     matchIds = map["matchIds"];
     startDay = map["startDay"];
@@ -35,6 +36,7 @@ class League {
       "teamsIds": teamsIds,
       "matchIds": matchIds,
       "startDay": startDay,
+      "leagueCreatorId": leagueCreatorId,
       "endDay": endDay,
     };
   }
